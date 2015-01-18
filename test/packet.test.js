@@ -8,7 +8,6 @@ var Packet = require('../lib/packet');
 var DumpReader = require('./dumpreader');
 
 
-
 lab.experiment('Packet', function () {
   var dr;
   lab.before(function (done) {
@@ -23,13 +22,15 @@ lab.experiment('Packet', function () {
     expect(p).to.deep.include({
       topic: 'TDRawDeviceEvent',
       payload:
-       { class: 'sensor',
-         protocol: 'fineoffset',
-         model: 'temperaturehumidity',
-         temp: '21.1',
-         humidity: '0x1F',
-         id: '0x87' },
-      controllerId: 1 });
+        { class: 'sensor',
+          protocol: 'fineoffset',
+          model: 'temperaturehumidity',
+          temp: '21.1',
+          humidity: '0x1F',
+          id: '0x87',
+          controllerId: 1
+        },
+      });
     done();
   });
 
