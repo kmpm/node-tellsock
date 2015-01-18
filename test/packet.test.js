@@ -21,16 +21,16 @@ lab.experiment('Packet', function () {
     expect(p).to.exist();
     expect(p).to.deep.include({
       topic: 'TDRawDeviceEvent',
-      payload:
-        { class: 'sensor',
-          protocol: 'fineoffset',
-          model: 'temperaturehumidity',
-          temp: '21.1',
-          humidity: '0x1F',
-          id: '0x87',
-          controllerId: 1
-        },
-      });
+      payload:{
+        class: 'sensor',
+        protocol: 'fineoffset',
+        model: 'temperaturehumidity',
+        temp: '21.1',
+        humidity: '0x1F',
+        id: '0x87',
+        controllerId: 1
+      },
+    });
     done();
   });
 
@@ -40,13 +40,15 @@ lab.experiment('Packet', function () {
     expect(p).to.exist();
     expect(p).to.deep.include({
       topic: 'TDSensorEvent',
-      payload:
-       { protocol: 'fineoffset',
-         model: 'temperaturehumidity',
-         id: '135',
-         temperature: '21.1',
-         ts: new Date(1421492433000),
-         humidity: '31' } });
+      payload: {
+        protocol: 'fineoffset',
+        model: 'temperaturehumidity',
+        id: '135',
+        temperature: '21.1',
+        ts: new Date(1421492433000),
+        humidity: '31'
+      }
+    });
     done();
   });
 
@@ -55,7 +57,7 @@ lab.experiment('Packet', function () {
     expect(p).to.exist();
     expect(p).to.deep.include({
       topic: 'TDDeviceEvent',
-      payload: { methodCode: 1, method: 'turnon', data: '0' }
+      payload: {methodCode: 1, method: 'turnon', data: '0'}
     });
     done();
   });
@@ -64,7 +66,7 @@ lab.experiment('Packet', function () {
   lab.test('parse all packets', function (done) {
     dr.moveFirst();
     var pd, p;
-    while( (pd = dr.next()) !== null) {
+    while ((pd = dr.next()) !== null) {
       p = Packet.read(pd.data);
       expect(p).to.include(['topic', 'payload']);
     }

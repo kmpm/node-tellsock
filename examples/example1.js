@@ -3,7 +3,6 @@
 var TelldusEvents = require('..').TelldusEvents;
 
 
-
 var te = new TelldusEvents();
 
 te.on('connected', function () {
@@ -16,4 +15,4 @@ te.on('sensor', function (msg) {
 
 te.on('raw', function (msg) {
   console.log('raw', msg);
-})
+});

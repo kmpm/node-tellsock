@@ -19,10 +19,10 @@ DumpReader.prototype.moveFirst = function () {
 }
 
 DumpReader.prototype.next = function(index) {
-    index = index || this.index;
-    if (this.index >= this.data.length-1) {
-      return null;
-    }
-    this.index = index;
-    return JSON.parse(this.data[this.index++]);
+  index = index || this.index;
+  if (this.index >= this.data.length - 1) {
+    return null;
+  }
+  this.index = index;
+  return JSON.parse(this.data[this.index++]);
 };

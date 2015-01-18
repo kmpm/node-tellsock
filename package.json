@@ -4,7 +4,8 @@
   "description": "pure sockets communication with tellstick",
   "main": "index.js",
   "scripts": {
-    "test": "lab -c"
+    "test": "lab -c",
+    "jscs": "jscs examples lib test index.js"
   },
   "repository": {
     "type": "git",
@@ -19,8 +20,8 @@
   "license": "MIT",
   "devDependencies": {
     "code": "^1.2.1",
+    "jscs": "^1.10.0",
     "lab": "^5.2.0"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
