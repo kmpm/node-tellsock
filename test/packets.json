@@ -21,3 +21,4 @@
 {"ts":"2015-01-17T17:28:46.309Z","data":"16:TDRawDeviceEvent78:class:command;protocol:waveman;model:codeswitch;house:N;unit:10;method:turnon;i1s"}
 {"ts":"2015-01-18T16:11:29.963Z","data":"13:TDDeviceEventi1si1s1:0"}
 {"ts":"2015-01-18T16:11:41.742Z","data":"13:TDDeviceEventi1si2s1:0"}
+{"ts":"2015-01-18T19:34:29.360Z","data":"13:TDDeviceEventi5si2s1:0"}

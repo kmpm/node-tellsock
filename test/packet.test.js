@@ -55,9 +55,15 @@ lab.experiment('Packet', function () {
   lab.test('read TDDeviceEvent', function (done) {
     var p = Packet.read(dr.next(21).data);
     expect(p).to.exist();
-    expect(p).to.deep.include({
+    expect(p, 'turnon device 1').to.deep.include({
       topic: 'TDDeviceEvent',
-      payload: {methodCode: 1, method: 'turnon', data: '0'}
+      payload: {device: '1', methodCode: 1, method: 'turnon', data: '0'}
+    });
+
+    p = Packet.read(dr.next(23).data);
+    expect(p, 'turnoff device 5').to.deep.include({
+      topic: 'TDDeviceEvent',
+      payload: {device: '5', methodCode: 2, method: 'turnoff', data: '0'}
     });
     done();
   });

@@ -1,6 +1,6 @@
 {
   "name": "tellsock",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "pure sockets communication with tellstick",
   "main": "index.js",
   "scripts": {
