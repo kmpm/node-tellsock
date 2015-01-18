@@ -29,7 +29,7 @@ lab.experiment('Packet', function () {
          temp: '21.1',
          humidity: '0x1F',
          id: '0x87' },
-      num: 1 });
+      controllerId: 1 });
     done();
   });
 
@@ -43,9 +43,9 @@ lab.experiment('Packet', function () {
        { protocol: 'fineoffset',
          model: 'temperaturehumidity',
          id: '135',
-         temperature: 21.1,
+         temperature: '21.1',
          ts: new Date(1421492433000),
-         humidity: 31 } });
+         humidity: '31' } });
     done();
   });
 
