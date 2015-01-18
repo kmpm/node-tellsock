@@ -4,20 +4,34 @@ var Lab = require('lab');
 var lab = exports.lab = Lab.script();
 
 
-var Packet = require('../lib/packet');
-var DumpReader = require('./dumpreader');
+var Message = require('../lib/message');
+var messages = require('./packets.json');
+
+lab.experiment('Message', function () {
+
+  lab.test('create', function (done) {
+    var msg = new Message('tdGetName');
+    var str = msg.addInteger(1).toString();
+
+    expect(str).to.equal('9:tdGetNamei1s');
+    expect(msg.index).to.equal(14);
+    done();
+  });
 
 
-lab.experiment('Packet', function () {
-  var dr;
-  lab.before(function (done) {
-    dr = new DumpReader(__dirname + '/packets.json');
+  lab.test('parse', function (done) {
+    var msg = Message.load('9:tdGetnamei1s');
+    var method = msg.readString();
+    var arg = msg.readInteger();
+    expect(method).to.equal('tdGetname');
+    expect(arg).to.equal(1);
     done();
   });
 
 
   lab.test('read TDRawDeviceEvent', function (done) {
-    var p = Packet.read(dr.next(0).data);
+    var msg = Message.load(messages[0].data);
+    var p = msg.toObject();
     expect(p).to.exist();
     expect(p).to.deep.include({
       topic: 'TDRawDeviceEvent',
@@ -36,14 +50,15 @@ lab.experiment('Packet', function () {
 
 
   lab.test('read TDSensorEvent', function (done) {
-    var p = Packet.read(dr.next(1).data);
+    var msg = Message.load(messages[1].data);
+    var p = msg.toObject();
     expect(p).to.exist();
     expect(p).to.deep.include({
       topic: 'TDSensorEvent',
       payload: {
         protocol: 'fineoffset',
         model: 'temperaturehumidity',
-        id: '135',
+        id: 135,
         temperature: '21.1',
         ts: new Date(1421492433000),
         humidity: '31'
@@ -53,30 +68,31 @@ lab.experiment('Packet', function () {
   });
 
   lab.test('read TDDeviceEvent', function (done) {
-    var p = Packet.read(dr.next(21).data);
+    var msg = Message.load(messages[21].data);
+    var p = msg.toObject();
+
     expect(p).to.exist();
     expect(p, 'turnon device 1').to.deep.include({
       topic: 'TDDeviceEvent',
-      payload: {device: '1', methodCode: 1, method: 'turnon', data: '0'}
+      payload: {device: 1, methodCode: 1, method: 'turnon', data: '0'}
     });
 
-    p = Packet.read(dr.next(23).data);
+    p = Message.load(messages[23].data).toObject();
     expect(p, 'turnoff device 5').to.deep.include({
       topic: 'TDDeviceEvent',
-      payload: {device: '5', methodCode: 2, method: 'turnoff', data: '0'}
+      payload: {device: 5, methodCode: 2, method: 'turnoff', data: '0'}
     });
     done();
   });
 
 
   lab.test('parse all packets', function (done) {
-    dr.moveFirst();
-    var pd, p;
-    while ((pd = dr.next()) !== null) {
-      p = Packet.read(pd.data);
+    messages.forEach(function (m) {
+      var p = Message.load(m.data).toObject();
       expect(p).to.include(['topic', 'payload']);
-    }
+    });
     done();
   });
+
 
 });
