@@ -6,6 +6,10 @@
   "scripts": {
     "test": "lab -c"
   },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kmpm/node-tellsock"
+  },
   "keywords": [
     "tellstick",
     "telldus",
