@@ -1,0 +1,22 @@
+{
+  "name": "tellsock",
+  "version": "0.0.1",
+  "description": "pure sockets communication with tellstick",
+  "main": "index.js",
+  "scripts": {
+    "test": "lab -c"
+  },
+  "keywords": [
+    "tellstick",
+    "telldus",
+    "socket"
+  ],
+  "author": "Peter Magnusson <peter@birchroad.net>",
+  "license": "MIT",
+  "devDependencies": {
+    "code": "^1.2.1",
+    "lab": "^5.2.0"
+  },
+  "dependencies": {
+  }
+}
