@@ -19,3 +19,5 @@
 {"ts":"2015-01-17T17:28:43.751Z","data":"16:TDRawDeviceEvent77:class:command;protocol:waveman;model:codeswitch;house:N;unit:9;method:turnon;i1s"}
 {"ts":"2015-01-17T17:28:46.296Z","data":"16:TDRawDeviceEvent95:class:command;protocol:arctech;model:selflearning;house:23903226;unit:14;group:0;method:turnon;i1s"}
 {"ts":"2015-01-17T17:28:46.309Z","data":"16:TDRawDeviceEvent78:class:command;protocol:waveman;model:codeswitch;house:N;unit:10;method:turnon;i1s"}
+{"ts":"2015-01-18T16:11:29.963Z","data":"13:TDDeviceEventi1si1s1:0"}
+{"ts":"2015-01-18T16:11:41.742Z","data":"13:TDDeviceEventi1si2s1:0"}

@@ -49,6 +49,16 @@ lab.experiment('Packet', function () {
     done();
   });
 
+  lab.test('read TDDeviceEvent', function (done) {
+    var p = Packet.read(dr.next(21).data);
+    expect(p).to.exist();
+    expect(p).to.deep.include({
+      topic: 'TDDeviceEvent',
+      payload: { methodCode: 1, method: 'turnon', data: '0' }
+    });
+    done();
+  });
+
 
   lab.test('parse all packets', function (done) {
     dr.moveFirst();
