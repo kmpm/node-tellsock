@@ -11,7 +11,6 @@ npm install tellsock
 ```
 
 
-
 Examples
 --------
 ```javascript
@@ -38,3 +37,7 @@ events.on('message', function (msg) {
 });
 ```
 
+Notes
+-----
+Lots of inspiration for the client came from
+https://github.com/stromnet/jtelldus/blob/master/src/java/se/stromnet/jtelldus/TelldusInterface.java
