@@ -1,6 +1,6 @@
 {
   "name": "tellsock",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "pure sockets communication with tellstick",
   "main": "index.js",
   "scripts": {
@@ -23,5 +23,7 @@
     "jscs": "^1.10.0",
     "lab": "^5.2.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "bluebird": "^2.8.0"
+  }
 }

@@ -6,26 +6,24 @@ var TelldusClient = require('..').TelldusClient;
 
 var tc = new TelldusClient();
 
-tc.tdGetNumberOfDevices(function (err, count) {
-  if (err) {
-    return console.error('Unexpected error', err);
-  }
-  else {
-    console.log('count:', count);
-  }
+
+tc.tdGetNumberOfDevices()
+.then(function (count) {
+  console.log('%d number of devices is configured');
+  return tc.tdGetName(1);
 })
-
-
-tc.tdGetName(1, function (err, name) {
-  if (err) {throw err;}
-  console.log('name 1:', name);
-});
-
-tc.tdTurnOn(1, function (err, result) {
-  console.log('turn on', err, result);
-
-  tc.tdTurnOff(1, function (err, result) {
-    console.log('turn off', err, result);
-  });
-
+.then(function (name) {
+  console.log('device 1 is called "%s"', name);
+  return tc.tdTurnOn(1);
+})
+.then(function (result) {
+  console.log('device 1 was turned on:', result === 0);
+  return tc.tdTurnOff(1);
+})
+.then(function (result) {
+  console.log('device 1 was turned off:', result === 0);
+  return tc.tdTurnOff(1);
+})
+.catch(function (err) {
+  console.error('and error occured', err);
 });
