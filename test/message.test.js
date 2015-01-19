@@ -67,6 +67,7 @@ lab.experiment('Message', function () {
     done();
   });
 
+
   lab.test('read TDDeviceEvent', function (done) {
     var msg = Message.load(messages[21].data);
     var p = msg.toObject();
@@ -93,6 +94,4 @@ lab.experiment('Message', function () {
     });
     done();
   });
-
-
 });

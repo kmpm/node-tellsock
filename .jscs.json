@@ -1,4 +1,5 @@
 {
 	"preset": "grunt",
-	"disallowMultipleLineBreaks": null
+	"disallowMultipleLineBreaks": null,
+	"disallowKeywordsOnNewLine": null
 }
