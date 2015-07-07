@@ -35,7 +35,7 @@ lab.experiment('Message', function () {
     expect(p).to.exist();
     expect(p).to.deep.include({
       topic: 'TDRawDeviceEvent',
-      payload:{
+      payload: {
         class: 'sensor',
         protocol: 'fineoffset',
         model: 'temperaturehumidity',
@@ -43,7 +43,7 @@ lab.experiment('Message', function () {
         humidity: '0x1F',
         id: '0x87',
         controllerId: 1
-      },
+      }
     });
     done();
   });

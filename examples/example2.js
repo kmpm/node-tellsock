@@ -3,7 +3,6 @@
 var TelldusEvents = require('..').TelldusEvents;
 
 
-
 var te = new TelldusEvents();
 
 te.on('connect', function () {

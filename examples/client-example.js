@@ -3,7 +3,6 @@ var tellsock = require('..');
 var TelldusClient = tellsock.TelldusClient;
 
 
-
 var tc = new TelldusClient();
 
 

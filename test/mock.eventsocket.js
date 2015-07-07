@@ -3,17 +3,15 @@ var net = require('net');
 var EventSocket = module.exports = function () {
   this.socketfile = '/tmp/TelldusEvents';
   console.log('mock Socket');
-}
+};
 
 EventSocket.prototype.listen = function (callback) {
-
   var conn = new net.Server();
-  var socketfile = this.socketfile;
 
   conn.listen(this.socketfile);
 
   //Eventlistener on connection
-  conn.on('listening' , function () {
+  conn.on('listening', function () {
     console.log('mock connected');
     callback();
   });
@@ -26,6 +24,5 @@ EventSocket.prototype.listen = function (callback) {
     console.log('mock error', err);
     throw err;
   });
-}
-
+};
 

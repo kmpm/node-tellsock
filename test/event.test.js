@@ -1,5 +1,5 @@
-var Code = require('code');   // assertion library
-var expect = Code.expect;
+//var Code = require('code');   // assertion library
+//var expect = Code.expect;
 var Lab = require('lab');
 var lab = exports.lab = Lab.script();
 
@@ -11,7 +11,7 @@ var SOCKETFILE = '/tmp/TelldusEvents';
 var EventSocket = require('./mock.eventsocket');
 var es;
 
-lab.experiment('TelldusEvents', function (){
+lab.experiment('TelldusEvents', function () {
   lab.before(function (done) {
     if (!fs.existsSync(SOCKETFILE)) {
       es = new EventSocket();
@@ -20,7 +20,7 @@ lab.experiment('TelldusEvents', function (){
     else {
       done();
     }
-  })
+  });
 
 
   lab.after(function (done) {
@@ -35,5 +35,4 @@ lab.experiment('TelldusEvents', function (){
     var te = new TelldusEvents();
     te.on('connect', done);
   });
-
 });
