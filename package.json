@@ -19,11 +19,11 @@
   "author": "Peter Magnusson <peter@birchroad.net>",
   "license": "MIT",
   "devDependencies": {
-    "code": "^1.2.1",
-    "eslint": "^0.24.0",
-    "lab": "^5.2.0"
+    "code": "^2.0.1",
+    "eslint": "^1.8.0",
+    "lab": "^7.1.0"
   },
   "dependencies": {
-    "bluebird": "^2.8.0"
+    "bluebird": "^3.0.3"
   }
 }
